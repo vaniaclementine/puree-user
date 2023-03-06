@@ -6,13 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "static": "next build && next export"
   },
   "dependencies": {
+    "@capacitor/android": "^4.7.0",
+    "@capacitor/core": "4.7.0",
+    "@capacitor/ios": "^4.7.0",
+    "@ionic/cli": "^6.20.8",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
+    "ios-sim": "^9.0.0",
+    "native-run": "^1.7.2",
     "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "4.7.0"
   }
 }
