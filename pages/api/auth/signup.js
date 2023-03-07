@@ -2,7 +2,8 @@ import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
 
-//login logic
+//signup
+
 
 //insert data to cockroachdb using prisma client (example)
 const merchant = await prisma.merchant.create({
