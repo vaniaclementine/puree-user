@@ -3,6 +3,15 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
+<<<<<<< Updated upstream
+=======
+import Logland from '@/pages/login_landing'
+import UserSet1 from '@/pages/user_setup_satu'
+import UserSet2 from '@/pages/user_setup_dua'
+import UserSet3 from '@/pages/user_setup_tiga'
+import UserHomescreen from '@/pages/user_homescreen'
+
+>>>>>>> Stashed changes
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -14,6 +23,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+<<<<<<< Updated upstream
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
@@ -118,6 +128,13 @@ export default function Home() {
           </a>
         </div>
       </main>
+=======
+      {/* <MerchSetup/> */}
+      <UserSet1/>
+      {/* <MerchHome/> */}
+      {/* <Logland/> */}
+      {/* <Merch/> */}
+>>>>>>> Stashed changes
     </>
   )
 }
