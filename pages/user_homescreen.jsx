@@ -1,55 +1,78 @@
 import React from 'react'
-
-import Link from 'next/link'
 import Image from 'next/image'
+import nearme from '../images/nearme.jpeg'
+import doo from '../images/doo.jpeg'
+import toprated from '../images/toprated.jpeg'
+import disc from '../images/disc.jpeg'
+import cuisine from '../images/cuisine.jpeg'
+import kiri from '../images/kiri.jpeg'
+import keranjang from '../images/keranjang.jpeg'
+import home from '../images/home.jpeg'
+import message from '../images/message.jpeg'
+import notif from '../images/notif.jpeg'
+import profile from '../images/profile.jpeg'
+// import '../styles/user_landing.css'
 
-export default function UserHomescreen() {
-  return (
-    <div>
-    <div id="top-container">
-        <p id="deliver_to">Deliver to</p>
-        <p id="address">No.17, Jl. Dharmawangsa</p>
-        <button id="love-button">
+export default function user_landing() {
+    return (
+        <div>
+            <div id='topContainer-user'>
+                <p id='deliver-to'>Deliver to</p>
+                <p id='address-user'>Jl. Dharmawangsa Raya No. 17b</p>
+                <p id='craving'>What are you craving ?</p>
+            </div>
 
-        </button>
-        <button id="history">
+            <div id="content">
+                <div id="card">
+                    <div id="near-me">
+                        <button>
+                        <Image className='near-me' src={nearme}></Image>
+                        <p>Near Me</p>
+                        </button>
+                    </div>
 
-        </button>
-    </div>
-    <div id="search-bar">
-        <img src="" alt="" />
-        <p>What are you craving?</p>
-    </div>
-    <div id="content">
-        <div id="features">
-            <div className="near-me">
-                <img src="" alt="" />
-                <p>Near Me</p>
+                    <div id="top-rated">
+                        <button>
+                        <Image className='top-rated' src={toprated}></Image>
+                        <p>Top Rated</p>
+                        </button>
+                    </div>
+
+                    <div id="disc">
+                        <button>
+                        <Image className='disc' src={disc}></Image>
+                        <p>Special Discount</p>
+                        </button>
+                    </div>
+
+                    <div id="cuisines">
+                        <button>
+                        <Image className='cuisine' src={cuisine}></Image>
+                        <p>All Cuisines</p>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div className="top-rated">
-                <img src="" alt="" />
-                <p>Top Rated</p>
+
+            <div id="carousel">
+                <Image className='' src={doo}></Image>
+                <p id='nama-carousel'>Doo Doo Doo! ft.Pingfong</p>
+                <p id="bawahnya">Sponsored by Grouu</p>
             </div>
-            <div className="disc">
-                <img src="" alt="" />
-                <p>Special Discount</p>
+
+            <div id="reward">
+                <Image id="kiri" src={kiri}></Image>
+                <Image id='rewards' src={keranjang}></Image>
             </div>
-            <div className="cuisines">
-                <img src="" alt="" />
-                <p>All Cuisines</p>
+
+            <div id="footer">
+                <div id="footer-img">
+                <button><Image id='home-user' src={home}></Image></button>
+                <button><Image id="msg-user" src={message}></Image></button>
+                <button><Image id="notif-user" src={notif}></Image></button>
+                <button><Image id="profile-user" src={profile}></Image></button>
+                </div>
             </div>
         </div>
-        <div id="carousel">
-            <div className="img1">
-                <img src="" alt="" />
-                <p>Doo Doo Doo! ft. Pingfong</p>
-            </div>
-        </div>
-        <div id="rewards">
-            <p>% See available rewards</p>
-            <img src="" alt="" />
-        </div>
-    </div>
-</div>
-  )
+    )
 }
