@@ -11,19 +11,23 @@ import home from '../images/home.jpeg'
 import message from '../images/message.jpeg'
 import notif from '../images/notif.jpeg'
 import profile from '../images/profile.jpeg'
+import top from '../images/top-user-homescreen.jpg'
 // import '../styles/user_landing.css'
 
-export default function user_landing() {
+export default function user_homescreen() {
     return (
-        <div>
-            <div id='topContainer-user'>
-                <p id='deliver-to'>Deliver to</p>
-                <p id='address-user'>Jl. Dharmawangsa Raya No. 17b</p>
-                <p id='craving'>What are you craving ?</p>
+        <div className='bg-white'>
+            <div className='w-screen grid place-items-start h-[20vh]'>
+                <Image src={top} className='object-fill h-[20vh] w-screen'></Image>
+                <div className='top-content'>
+                    <p id='deliver-to' className=''>Deliver to</p>
+                    <p id='address-user'>Jl. Dharmawangsa Raya No. 17b</p>
+                    <p id='craving' className='py-5 ml-8 mt-5 pl-8 flex '>What are you craving ?</p>
+                </div>
             </div>
 
-            <div id="content">
-                <div id="card">
+            <div className=''>
+                <div id="card" className='mt-5'>
                     <div id="near-me">
                         <button>
                         <Image className='near-me' src={nearme}></Image>
@@ -54,24 +58,22 @@ export default function user_landing() {
                 </div>
             </div>
 
-            <div id="carousel">
+            <div id="carousel" className='mt-5'>
                 <Image className='' src={doo}></Image>
-                <p id='nama-carousel'>Doo Doo Doo! ft.Pingfong</p>
+                <p id='nama-carousel' className='mt-3'>Doo Doo Doo! ft.Pingfong</p>
                 <p id="bawahnya">Sponsored by Grouu</p>
             </div>
 
-            <div id="reward">
+            <div id="reward" className='mt-5'>
                 <Image id="kiri" src={kiri}></Image>
                 <Image id='rewards' src={keranjang}></Image>
             </div>
 
-            <div id="footer">
-                <div id="footer-img">
-                <button><Image id='home-user' src={home}></Image></button>
-                <button><Image id="msg-user" src={message}></Image></button>
-                <button><Image id="notif-user" src={notif}></Image></button>
-                <button><Image id="profile-user" src={profile}></Image></button>
-                </div>
+            <div className='container h-24 fixed bottom-0 justify-around shadow-inner bg-white'>
+                    <Image src={home} className='my-5 w-7 h-7'></Image>
+                    <Image src={message} className='my-6 w-8 h-6'></Image>
+                    <Image src={notif} className='my-5 w-7 h-8'></Image>
+                    <Image src={profile} className='my-5 w-8 h-8'></Image>
             </div>
         </div>
     )
