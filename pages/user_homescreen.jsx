@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Image from 'next/image'
 import nearme from '../images/nearme.jpeg'
 import doo from '../images/doo.jpeg'
@@ -12,6 +12,9 @@ import message from '../images/message.jpeg'
 import notif from '../images/notif.jpeg'
 import profile from '../images/profile.jpeg'
 import top from '../images/top-user-homescreen.jpg'
+import bebe from '../images/bebe.jpg'
+import bundling from '../images/bundling.jpg'
+import sangyu from '../images/sangyu.jpg'
 // import '../styles/user_landing.css'
 
 export default function user_homescreen() {
@@ -27,7 +30,7 @@ export default function user_homescreen() {
             </div>
 
             <div className=''>
-                <div id="card" className='mt-5'>
+                <div id="card" className='mt-14 ml-8 text-[13px] flex'>
                     <div id="near-me">
                         <button>
                         <Image className='near-me' src={nearme}></Image>
@@ -37,21 +40,21 @@ export default function user_homescreen() {
 
                     <div id="top-rated">
                         <button>
-                        <Image className='top-rated' src={toprated}></Image>
+                        <Image className='top-rated ml-2' src={toprated}></Image>
                         <p>Top Rated</p>
                         </button>
                     </div>
 
                     <div id="disc">
                         <button>
-                        <Image className='disc' src={disc}></Image>
+                        <Image className='disc ml-6' src={disc}></Image>
                         <p>Special Discount</p>
                         </button>
                     </div>
 
                     <div id="cuisines">
                         <button>
-                        <Image className='cuisine' src={cuisine}></Image>
+                        <Image className='cuisine ml-2' src={cuisine}></Image>
                         <p>All Cuisines</p>
                         </button>
                     </div>
@@ -59,9 +62,13 @@ export default function user_homescreen() {
             </div>
 
             <div id="carousel" className='mt-5'>
-                <Image className='' src={doo}></Image>
-                <p id='nama-carousel' className='mt-3'>Doo Doo Doo! ft.Pingfong</p>
-                <p id="bawahnya">Sponsored by Grouu</p>
+                <div className=''>
+                    <div>
+                        <Image className='' src={doo}></Image>
+                        <p id='nama-carousel' className='mt-3'>Doo Doo Doo! ft.Pingfong</p>
+                        <p id="bawahnya">Sponsored by Grouu</p>
+                    </div>
+                </div>
             </div>
 
             <div id="reward" className='mt-5'>

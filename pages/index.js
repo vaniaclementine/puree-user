@@ -6,7 +6,6 @@ import { useState } from 'react'
 
 import UserLanding from '@/pages/user_landing'
 import UserSet2 from '@/pages/user_setup_dua'
-import UserSet3 from '@/pages/user_setup_tiga'
 import user_homescreen from './user_homescreen'
 
 const inter = Inter({ subsets: ['latin'] })

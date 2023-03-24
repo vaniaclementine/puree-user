@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 
 // import '../styles/merchant_setup.css'
@@ -7,7 +7,6 @@ import CornerLogo from '../images/corner-logo.png'
 import Jar from '../images/jar.png'
 import Link from 'next/link'
 import ProfilePicture from '../images/profile-picture.png'
-
 
 export default function userSet2() {
   return (
@@ -32,7 +31,7 @@ export default function userSet2() {
       <p id='add-photo'>Add your profile picture</p>
 
         <p className=''>Name</p>
-        <input type='text' placeholder='Jane' class="placeholder-gray-500 placeholder-opacity-8" required/>
+        <input type='text' id='input-satu' placeholder='Jane' class="placeholder-gray-500 placeholder-opacity-8" required/>
 
 
 
