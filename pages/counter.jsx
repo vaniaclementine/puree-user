@@ -1,23 +1,26 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 export default function Counter(){
-  let [num, setNum]= useState(0);
+  const [num, setNum]= useState(0);
 
-  let incNum =()=>{
-    if(num<100) //nanti diganti jumlah stock
-    {
-    setNum(Number(num)+1);
-    }
+  // useEffect(() => {
+  //   if (num < 100) {
+  //     const incNum = setNum(Number(num)+1) 
+  //   }
+  //   else if (num > 0 ) {
+  //     const decNum = setNum(Number(num)-1)
+  //   }
+  // }, [])
+
+  const incNum =()=>{
+    num < 100 ? setNum(Number(num)+1) : false
   };
 
-  let decNum = () => {
-     if(num>0)
-     {
-      setNum(num - 1);
-     }
+  const decNum = () => {
+    num > 0 ? setNum(num-1) : false
   }
 
- let handleChange = (e)=>{
+  const handleChange = (e)=>{
    setNum(e.target.value);
   }
 

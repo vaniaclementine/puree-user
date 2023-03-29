@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
+
 import nearme from '../images/nearme.jpeg'
 import doo from '../images/doo.jpeg'
 import toprated from '../images/toprated.jpeg'
@@ -53,10 +55,12 @@ export default function user_homescreen() {
                     </div>
 
                     <div id="cuisines">
+                        <Link href='/all_cuisines'>
                         <button>
                         <Image className='cuisine ml-2' src={cuisine}></Image>
                         <p>All Cuisines</p>
                         </button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -64,9 +68,11 @@ export default function user_homescreen() {
             <div id="carousel" className='mt-5'>
                 <div className=''>
                     <div>
+                        <Link href='shop_page'>
                         <Image className='' src={doo}></Image>
                         <p id='nama-carousel' className='mt-3'>Doo Doo Doo! ft.Pingfong</p>
                         <p id="bawahnya">Sponsored by Grouu</p>
+                        </Link>
                     </div>
                 </div>
             </div>

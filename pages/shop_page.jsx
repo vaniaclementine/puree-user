@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from 'next/link'
 
 import doo2 from '../images/doo2.jpg'
 import back from '../images/back.jpg'
@@ -12,6 +13,7 @@ import home from '../images/home.jpeg'
 import message from '../images/message.jpeg'
 import notif from '../images/notif.jpeg'
 import profile from '../images/profile.jpeg'
+import japchae from '../images/menu-japchae.png'
 
 export default function shop_page() {
     return(
@@ -19,7 +21,9 @@ export default function shop_page() {
             <div id="top-container" className="w-screen grid place-items-start h-[20vh]">
                 <Image src={doo2} className='object-fill h-[20vh] w-screen'></Image>
                 <a className="ml-8 mt-5 absolute" href='#'>
-                        <Image src={back} className='w-8 rounded-full'></Image>
+                    <Link href='all_cuisines'>
+                    <Image src={back} className='w-8 rounded-full'></Image>
+                    </Link>
                 </a>
             </div>
 
@@ -89,9 +93,11 @@ export default function shop_page() {
                         <p className='text-sm font-semibold'>53.280</p>
                     </div>
                     <div>
-                        <Image src={menu} className='w-32'></Image>
-                        <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
+                        <Link href='/menu_details'>
+                        <Image src={japchae} className='w-32'></Image>
+                        <p className='mt-4 text-sm font-medium'>[PinkFong] Dak Gomtang - MPASI</p>
                         <p className='text-sm font-semibold'>53.280</p>
+                        </Link>
                     </div>
                     <div>
                         <Image src={menu} className='w-32'></Image>

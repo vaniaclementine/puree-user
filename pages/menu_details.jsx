@@ -12,7 +12,9 @@ export default function menu_details() {
         <div id="top-container" className="w-screen grid place-items-start h-[20vh]">
             <Image src={Menu} className='object-fill h-64 w-screen'></Image>
             <a className="ml-8 mt-5 absolute" href='#'>
+                <Link href="/shop_page">
                 <Image src={back} className='w-8 rounded-full'></Image>
+                </Link>
             </a>
         </div>
 
