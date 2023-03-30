@@ -27,7 +27,7 @@ export default function menu_details() {
         <Counter /> 
 
         <div className='h-full flex justify-center bg-white drop-shadow w-screen h-30 mt-52'>
-          <Link href='/'>
+          <Link href='/shop_page'>
             <button className='mt-9 bg-yellow-300 drop-shadow-lg rounded-lg w-80 h-11 flex items-center justify-center'>
               <p className='text-white text-sm font-semibold py-2.5'>Add to Basket</p>
             </button>

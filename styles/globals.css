@@ -100,7 +100,7 @@
   border-radius: 5px;
   padding: 0px 8px 0px 8px;
   margin-top: 12px;
-  @apply text-sm text-[#666666];
+  /* @apply text-sm text-[#666666]; */
 }
 
 input[type='number'] {

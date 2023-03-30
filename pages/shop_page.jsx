@@ -14,6 +14,7 @@ import message from '../images/message.jpeg'
 import notif from '../images/notif.jpeg'
 import profile from '../images/profile.jpeg'
 import japchae from '../images/menu-japchae.png'
+import search from '../images/search.png'
 
 export default function shop_page() {
     return(
@@ -24,7 +25,11 @@ export default function shop_page() {
                     <Link href='all_cuisines'>
                     <Image src={back} className='w-8 rounded-full'></Image>
                     </Link>
+                    <Link href='menu_search'>
+                    <Image src={search} className='w-7 rounded-full bg-white ml-72 p-1 -mt-8'></Image>
+                    </Link>
                 </a>
+                
             </div>
 
             <div id="card-shop" className= 'mx-8 rounded-xl drop-shadow-lg -mt-16 bg-white p-5'>
