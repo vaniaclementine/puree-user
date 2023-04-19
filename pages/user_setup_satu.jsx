@@ -7,8 +7,27 @@ import CornerLogo from '../images/corner-logo.png'
 import Jar from '../images/jar.png'
 import Link from 'next/link'
 
-
 export default function UserSet1() {
+
+  const [email, setEmail] = useState('')
+  const [phoneNumber, setPhonenumber] = useState('')
+  const [password, setPassword] = useState('')
+
+  const submitData = async e => {
+    e.preventDefault()
+    try {
+      const body = { email, phoneNumber, password }
+      await fetch(`http://localhost:3000/api/userSetupSatu/ `, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      })
+      await Router.push('/')
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <div className='bg-[#b0b0b0]'>
     
@@ -24,10 +43,16 @@ export default function UserSet1() {
               <div id='' className='space-y-4'>
 
                 <p className=''>Email</p>
-                <input type='email' id ='input-satu' placeholder='jane_d@gmail.com' class="placeholder-gray-500 placeholder-opacity-8" required/>
+                <input type='email' id ='input-satu' placeholder='jane_d@gmail.com' class="placeholder-gray-500 placeholder-opacity-8" 
+                onChange={e => setEmail(e.target.value)}
+                value={email}
+                required/>
 
                 <p className=''>Phone Number</p>
-                <input type='tel' id ='input-satu' placeholder='+628138764826' class="placeholder-gray-500 placeholder-opacity-80" required/>
+                <input type='tel' id ='input-satu' placeholder='+628138764826' class="placeholder-gray-500 placeholder-opacity-80" 
+                onChange={e => setPhonenumber(e.target.value)}
+                value={phoneNumber}
+                required/>
 
                 <p className=''>Password</p>
                 <input type='password' id ='input-satu' required 
@@ -36,14 +61,18 @@ export default function UserSet1() {
                   alphabet="A-Za-z0-9+_%@!$*~-"
                   requiredclasses="[A-Z] [a-z] [0-9] [+_%@!$*~-]"
                   requiredclasscount="3"
-                  disallowedwords="{{username}}"/>
+                  disallowedwords="{{username}}"
+                  onChange={e => setPassword(e.target.value)} 
+                  value={password} 
+                  />
                         
                 <p className=''>Confirm Password</p>
                 <input type='password' id ='input-satu' required/>
 
                 <div className='h-full flex justify-center'>
                   <Link href='/user_setup_dua'>
-                    <button id='next-button' className='grid place-items-center mt-5'>
+                    <button id='next-button' className='grid place-items-center mt-5'
+                    disabled={!email || !phoneNumber || !password} type="submit" value="Next">
                       <p id='next'>Next</p>
                     </button>
                   </Link>
