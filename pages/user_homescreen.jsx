@@ -19,7 +19,7 @@ import bundling from '../images/bundling.jpg'
 import sangyu from '../images/sangyu.jpg'
 // import '../styles/user_landing.css'
 
-export default function user_homescreen() {
+export default function UserHomescreen() {
     return (
         <div className='bg-white'>
             <div className='w-screen grid place-items-start h-[20vh]'>
