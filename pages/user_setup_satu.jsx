@@ -72,7 +72,7 @@ export default function UserSet1() {
                 <div className='h-full flex justify-center'>
                   <Link href='/user_setup_dua'>
                     <button id='next-button' className='grid place-items-center mt-5'
-                    disabled={!email || !phoneNumber || !password} type="submit" value="Next">
+                    disabled={!email || !phoneNumber || !password} type="submit" value="Next" onClick={submitData}>
                       <p id='next'>Next</p>
                     </button>
                   </Link>
