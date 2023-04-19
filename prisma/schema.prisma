@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearch"]
 }
 
@@ -9,20 +9,19 @@ datasource db {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  //@db.Text
-  access_token       String?  //@db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  //@db.Text
-  session_state      String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -42,6 +41,8 @@ model User {
   emailVerified DateTime?
   image         String?
   accounts      Account[]
+  Driver        Driver?
+  Merchant      Merchant?
   sessions      Session[]
 }
 
@@ -53,25 +54,59 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model merchant {
-  merchant_id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name        String
-  category    String
-  address     String
-  merchant_email String @unique
-  merchant_password String
+model Address {
+  id             String   @id
+  province       String
+  city           String
+  address_line_1 String
+  merchantId     String   @unique
+  Merchant       Merchant @relation(fields: [merchantId], references: [userId])
 }
 
-model driver {
-  driver_id      String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name           String
-  phoneNumber    Int      @unique
-  driver_email          String   @unique
-  driver_password String
-  numberPlate    String   @unique
-  vehicleBrand   String
-  vehicleColor   String
-  createdAt      DateTime @default(now())
-  profilePicture String?
-  session_state  String?
+model Driver {
+  id        String    @id
+  email     String    @unique
+  phone     String    @unique
+  password  String
+  name      String?
+  photo     String?
+  createdAt DateTime  @default(now())
+  balance   Int?
+  userId    String    @unique
+  User      User      @relation(fields: [userId], references: [id])
+  Vehicle   Vehicle[]
+}
+
+model Item {
+  id          String   @id
+  name        String
+  description String
+  price       Int
+  picture     String?
+  merchantId  String   @unique
+  Merchant    Merchant @relation(fields: [merchantId], references: [id])
+}
+
+model Merchant {
+  id       String   @id
+  email    String   @unique
+  password String
+  phone    String   @unique
+  name     String?  @unique
+  balance  String?
+  userId   String   @unique
+  Address  Address?
+  Item     Item?
+  User     User     @relation(fields: [userId], references: [id])
+}
+
+model Vehicle {
+  id          String   @id
+  plateNumber String   @unique
+  brand       String
+  series      String
+  color       String
+  year        DateTime
+  driverId    String
+  Driver      Driver   @relation(fields: [driverId], references: [id], onDelete: Cascade)
 }
