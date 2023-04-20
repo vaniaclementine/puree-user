@@ -83,7 +83,7 @@ model Item {
   description String
   price       Int
   picture     String?
-  merchantId  String   @unique
+  merchantId  String 
   Merchant    Merchant @relation(fields: [merchantId], references: [id])
 }
 
@@ -96,7 +96,7 @@ model Merchant {
   balance  String?
   userId   String   @unique
   Address  Address?
-  Item     Item?
+  Item     Item[]
   User     User     @relation(fields: [userId], references: [id])
 }
 
