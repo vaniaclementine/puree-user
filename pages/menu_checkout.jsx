@@ -88,7 +88,7 @@ export default function menu_checkout() {
                 </div>
             </div>
 
-            <div className='h-[180px] justify-center bg-white drop-shadow mt-32'>
+            <div className='h-fill justify-center bg-white drop-shadow mt-32 pb-5'>
                 <div className="m-8 pt-8">
                     <div className="flex">
                             <p>Total</p>
