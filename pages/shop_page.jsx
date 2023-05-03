@@ -21,14 +21,14 @@ export default function shop_page() {
         <div>
             <div id="top-container" className="w-screen grid place-items-start h-[20vh]">
                 <Image src={doo2} className='object-fill h-[20vh] w-screen'></Image>
-                <a className="ml-8 mt-5 absolute" href='#'>
+                <div className="ml-8 mt-5 absolute">
                     <Link href='all_cuisines'>
                     <Image src={back} className='w-8 rounded-full'></Image>
                     </Link>
                     <Link href='menu_search'>
                     <Image src={search} className='w-7 rounded-full bg-white ml-72 p-1 -mt-8'></Image>
                     </Link>
-                </a>
+                </div>
                 
             </div>
 
