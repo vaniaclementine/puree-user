@@ -17,7 +17,7 @@ export default function UserSet1() {
     e.preventDefault()
     try {
       const body = { email, phoneNumber, password }
-      await fetch(`http://localhost:3000/api/userSetupSatu/ `, {
+      await fetch(`http://localhost:3000/api/user-setup-satu/ `, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

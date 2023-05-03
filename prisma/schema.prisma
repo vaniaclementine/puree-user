@@ -85,6 +85,18 @@ model Item {
   picture     String?
   merchantId  String 
   Merchant    Merchant @relation(fields: [merchantId], references: [id])
+  carts     Cart[]
+}
+
+model Cart {
+  id          String      @id
+  createdAt   DateTime @default(now())
+  quantity    Int
+  totalPrice Float
+
+  // Define the many-to-one relationship with item
+  itemId      String
+  item        Item     @relation(fields: [itemId], references: [id])
 }
 
 model Merchant {
