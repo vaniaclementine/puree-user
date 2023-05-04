@@ -7,6 +7,7 @@ import back from '../images/back.jpg'
 import search from '../images/search.png'
 import location from '../images/location.jpg'
 import Counter from "./counter";
+import tag from '../images/tag.png'
 
 function Counter2(){
     const [num, setNum]= useState(0);
@@ -88,7 +89,16 @@ export default function menu_checkout() {
                 </div>
             </div>
 
-            <div className='h-fill justify-center bg-white drop-shadow mt-32 pb-5'>
+            <div className="h-[4px] bg-slate-100 mt-8"></div>
+
+            <div className="ml-8 mt-8 flex">
+                <Image src={tag}></Image>
+                <Link href='/discount'>
+                    <p className="font-light text-[13px] ml-3">Use available discounts</p>
+                </Link>
+            </div>
+
+            <div className='h-fill justify-center bg-white drop-shadow mt-12 pb-5'>
                 <div className="m-8 pt-8">
                     <div className="flex">
                             <p>Total</p>
