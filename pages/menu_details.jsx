@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -6,16 +6,23 @@ import Menu from '../images/menu-detail.png'
 import back from '../images/back.jpg'
 import Counter from './counter.jsx'
 
+
 export default function menu_details() {
+
+  const [cart, setCart] = useState([])
+  const handleATC = (product) => {
+    setCart([...cart, product])
+  }
+
   return (
     <div>
         <div id="top-container" className="w-screen grid place-items-start h-[20vh]">
             <Image src={Menu} className='object-fill h-64 w-screen'></Image>
-            <a className="ml-8 mt-5 absolute" href='#'>
+            <div className="ml-8 mt-5 absolute">
                 <Link href="/shop_page">
                 <Image src={back} className='w-8 rounded-full'></Image>
                 </Link>
-            </a>
+            </div>
         </div>
 
         <div className='mt-20 px-8 pt-6'>
@@ -39,3 +46,4 @@ export default function menu_details() {
 
   )
 }
+
