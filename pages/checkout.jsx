@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import back from '../images/back.jpg'
@@ -6,11 +6,32 @@ import location from '../images/location.jpg'
 import tag from '../images/tagyellow.jpg'
 
 export default function Checkout() {
+
+    const [count, setState] = useState({
+        first: 0,
+        second: 0
+      });
+    
+      function increment(type) {
+        setState(prev => ({
+          ...prev,
+          [type]: count[type] + 1
+        }))
+      }
+    
+      function decrement(type) {
+        if(count[type] === 0) return;
+        setState(prev => ({
+          ...prev,
+          [type]: count[type] - 1
+        }))
+      }
+
   return (
     <div className='h-screen'>
         <div className='shadow-xl p-8'>
             <div className='inline-flex w-full'>
-                <Link href='all_cuisines'>
+                <Link href='shop_page'>
                     <Image src={back} className='w-8 rounded-full shadow-xl grid items-center'></Image>
                 </Link>
                 <div className='grid place-items-center w-full'>
@@ -36,13 +57,13 @@ export default function Checkout() {
                         <div id='ordercontainer' className=''>
                             <div className='grid place-items-center pt-[1px]'>
                                 <div id='ordercount' className='grid place-items-center'>
-                                    <h1 className='font-semibold text-[#f5ce00]'>1</h1>
+                                    <h1 className='font-semibold text-[#f5ce00]'>{count.first}</h1>
                                 </div>
                             </div>
 
                             <div className='flex justify-evenly space-x-5 text-lg text-white'>
-                                <h1>&#8722;</h1>
-                                <h1>&#43;</h1>
+                                <button onClick={() => decrement('first')}>-</button>
+                                <button onClick={() => increment('first')}>+</button>
                             </div>
                         </div>
 
@@ -55,13 +76,13 @@ export default function Checkout() {
                         <div id='ordercontainer' className=''>
                             <div className='grid place-items-center pt-[1px]'>
                                 <div id='ordercount' className='grid place-items-center'>
-                                    <h1 className='font-semibold text-[#f5ce00]'>1</h1>
+                                    <h1 className='font-semibold text-[#f5ce00]'>{count.second}</h1>
                                 </div>
                             </div>
 
                             <div className='flex justify-evenly space-x-5 text-lg text-white'>
-                                <h1>&#8722;</h1>
-                                <h1>&#43;</h1>
+                                <button onClick={() => decrement('second')}>-</button>
+                                <button onClick={() => increment('second')}>+</button>
                             </div>
                         </div>
 
@@ -88,12 +109,16 @@ export default function Checkout() {
                 <h1>2.000</h1>
             </div>
             <div className='h-px bg-gray-200'/>
-            <div className='flex justify-between pb-6'>
-                <div className='inline-flex space-x-3'>
-                    <Image src={tag} className='w-6 h-6'></Image>
-                    <h1>Use available discounts</h1>
+            <div>
+                <Link href='menu_checkout'>
+                <div className='flex justify-between pb-6'>
+                        <div className='inline-flex space-x-3'>
+                            <Image src={tag} className='w-6 h-6'></Image>
+                            <h1>Use available discounts</h1>
+                        </div>
+                        <span>&#62;</span>                    
                 </div>
-                <span>&#62;</span>
+                </Link>
             </div>
         </div>
 
