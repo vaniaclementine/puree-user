@@ -4,6 +4,7 @@ import Image from 'next/image'
 import back from '../images/back.jpg'
 import location from '../images/location.jpg'
 import tag from '../images/tagyellow.jpg'
+import payment from '../images/payment.jpg'
 
 export default function Checkout() {
 
@@ -113,8 +114,21 @@ export default function Checkout() {
                 <Link href='menu_checkout'>
                 <div className='flex justify-between pb-6'>
                         <div className='inline-flex space-x-3'>
-                            <Image src={tag} className='w-6 h-6'></Image>
+                            <div className='grid place-items-center'>
+                                <Image src={tag} className='w-5 h-5'></Image>
+                            </div>
                             <h1>Use available discounts</h1>
+                        </div>
+                        <span>&#62;</span>                    
+                </div>
+                </Link>
+                <Link href='menu_checkout'>
+                <div className='flex justify-between pb-6'>
+                        <div className='inline-flex space-x-3'>
+                            <div className='grid place-items-center'>
+                                <Image src={payment} className='w-5 h-4'></Image>
+                            </div>
+                            <h1>Choose payment method</h1>
                         </div>
                         <span>&#62;</span>                    
                 </div>
