@@ -122,7 +122,7 @@ export default function Checkout() {
                         <span>&#62;</span>                    
                 </div>
                 </Link>
-                <Link href='menu_checkout'>
+                <Link href='payment'>
                 <div className='flex justify-between pb-6'>
                         <div className='inline-flex space-x-3'>
                             <div className='grid place-items-center'>

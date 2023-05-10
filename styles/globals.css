@@ -253,3 +253,16 @@ align-items: center;
   background-color: #F5CE00;
   border-radius: .8rem;
  }
+
+ #bg_choose {
+  @apply p-[1rem] text-sm text-center text-[#b0b0b0] bg-[#f1f1f1];
+ }
+
+ #paymentline {
+  height: 1px;
+  background: #f5f5f5;
+ }
+
+ #payment {
+  @apply p-[3rem];
+ }
