@@ -266,3 +266,9 @@ align-items: center;
  #payment {
   @apply p-[3rem];
  }
+
+ #pin {
+  /* background: url('../images/ellipse1.jpg') top right no-repeat, url('../images/ellipse2.jpg') bottom left no-repeat; */
+  background-color: #F5CE00;
+  @apply h-screen overflow-hidden;
+ }
