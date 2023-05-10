@@ -282,3 +282,19 @@ align-items: center;
   background: #fff;
   @apply grid place-items-center;
  }
+
+ #pincircle {
+  height: 1rem; width: 1rem;
+  border-radius: .5rem;
+  background-color: #fff;
+  opacity: 70%;
+ }
+
+ #pincontainer {
+  @apply px-[6rem] flex justify-evenly pb-[4rem];
+ }
+
+ #pinum {
+  color: #fff;
+  @apply px-[4rem] grid grid-cols-3 text-center gap-16 text-2xl;
+ }
