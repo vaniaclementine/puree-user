@@ -268,6 +268,17 @@ align-items: center;
 
  #pin {
   /* background: url('../images/ellipse1.jpg') top right no-repeat, url('../images/ellipse2.jpg') bottom left no-repeat; */
-  background-color: #F5CE00;
-  @apply h-screen overflow-hidden;
+  @apply h-screen overflow-hidden bg-[url('../images/bg-pay.png')];
+ }
+
+ #inputpin {
+  @apply flex flex-col justify-center px-[8rem] space-y-6;
+ }
+
+ #submitbtn {
+  height: 2rem;
+  width: 6rem;
+  border-radius: 1rem;
+  background: #fff;
+  @apply grid place-items-center;
  }
