@@ -125,12 +125,12 @@ export default function shop_page() {
                         <p className='text-sm font-semibold'>53.280</p>
                     </div>
                     <div>
-                        <Image src={menu} className='w-32'></Image>
+                        <Image src={menu} className='w-32' alt="avocado puree"></Image>
                         <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
                         <p className='text-sm font-semibold'>53.280</p>
                     </div>
                     <div>
-                        <Image src={menu} className='w-32'></Image>
+                        <Image src={menu} className='w-32' alt="avocado puree"></Image>
                         <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
                         <p className='text-sm font-semibold'>53.280</p>
                     </div>

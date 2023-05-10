@@ -37,7 +37,7 @@ export default function menu_checkout() {
     return (
         <div>
             <div id="search" className="h-[85px] sticky bg-white flex shadow-lg">
-                <Link href='shop_page' className="ml-8 mt-8 absolute">
+                <Link href='discount' className="ml-8 mt-8 absolute">
                     <Image src={back} className='w-8 rounded-full shadow-lg'></Image>
                 </Link>
                 <p className='ml-40 pt-8 font-semibold flex justify-center content-center'>Checkout</p>

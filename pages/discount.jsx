@@ -23,7 +23,7 @@ export default function menu_checkout() {
                 <div className="flex">
                     <Image src={disc}></Image>
                     <div className="block ml-5 mt-2">
-                        <p className="text-s font-semibold">Delivery Discount 10%</p>
+                        <Link className="text-s font-semibold" href='/menu_checkout2'>Delivery Discount 100%</Link>
                         <p className="text-xs font-light">Minimum spend 100k</p>
                     </div>
                 </div>
