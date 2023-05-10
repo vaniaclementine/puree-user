@@ -10,7 +10,7 @@ import Counter from "./counter";
 import tag from '../images/tag.png'
 
 function Counter2(){
-    const [num, setNum]= useState(0);
+    const [num, setNum]= useState(Number(localStorage.getItem("counterValue")) || 0);
   
     const incNum =()=>{
       num < 100 ? setNum(Number(num)+1) : false
@@ -22,6 +22,7 @@ function Counter2(){
   
     const handleChange = (e)=>{
      setNum(e.target.value);
+     localStorage.setItem("counterValue", e.target.value);
     }
   
      return(
