@@ -111,7 +111,7 @@ export default function Checkout() {
             </div>
             <div className='h-px bg-gray-200'/>
             <div>
-                <Link href='menu_checkout'>
+                <Link href='discount'>
                 <div className='flex justify-between pb-6'>
                         <div className='inline-flex space-x-3'>
                             <div className='grid place-items-center'>

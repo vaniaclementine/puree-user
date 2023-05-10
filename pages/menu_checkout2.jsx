@@ -7,10 +7,9 @@ import back from '../images/back.jpg'
 import search from '../images/search.png'
 import location from '../images/location.jpg'
 import Counter from "./counter";
-import tag from '../images/tag.png'
 
 function Counter2(){
-    const [num, setNum]= useState(Number(localStorage.getItem("counterValue")) || 0);
+    const [num, setNum]= useState(0);
   
     const incNum =()=>{
       num < 100 ? setNum(Number(num)+1) : false
@@ -22,7 +21,6 @@ function Counter2(){
   
     const handleChange = (e)=>{
      setNum(e.target.value);
-     localStorage.setItem("counterValue", e.target.value);
     }
   
      return(
@@ -39,7 +37,7 @@ export default function menu_checkout() {
     return (
         <div>
             <div id="search" className="h-[85px] sticky bg-white flex shadow-lg">
-                <Link href='shop_page' className="ml-8 mt-8 absolute">
+                <Link href='discount' className="ml-8 mt-8 absolute">
                     <Image src={back} className='w-8 rounded-full shadow-lg'></Image>
                 </Link>
                 <p className='ml-40 pt-8 font-semibold flex justify-center content-center'>Checkout</p>
@@ -81,8 +79,9 @@ export default function menu_checkout() {
                     <p className="ml-56">106.560</p>
                 </div>
                 <div className="flex">
-                    <p>Delivery Fee</p>
-                    <p className="ml-52">10.560</p>
+                    <p classname="text-yellow-300">Delivery Fee</p>
+                    <p className="ml-52 text-yellow-300 line-through">10.560</p>
+                    <p className="pl-1">00</p>
                 </div>
                 <div className="flex">
                     <p>Order Fee</p>
@@ -90,16 +89,7 @@ export default function menu_checkout() {
                 </div>
             </div>
 
-            <div className="h-[4px] bg-slate-100 mt-8"></div>
-
-            <div className="ml-8 mt-8 flex">
-                <Image src={tag}></Image>
-                <Link href='/discount'>
-                    <p className="font-light text-[13px] ml-3">Use available discounts</p>
-                </Link>
-            </div>
-
-            <div className='h-fill justify-center bg-white drop-shadow mt-12 pb-5'>
+            <div className='h-fill justify-center bg-white drop-shadow mt-32 pb-5'>
                 <div className="m-8 pt-8">
                     <div className="flex">
                             <p>Total</p>

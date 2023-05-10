@@ -20,11 +20,6 @@ export default function menu_search() {
                 </div>
                 <div className="grid grid-cols-5">
                     <input type='text' className="ml-20 mt-7 bg-slate-200 h-[40px] w-[270px] rounded-xl shadow-md flex text-sm text-slate-400 col-span-3 pl-[50px]" placeholder="What are you looking for?"/>
-                    {/* <Link href='/menu_result'> */}
-{/*                   
-                    <Image src={search} className="-mt-9 ml-3 h-[18px] col-start-2"></Image> */}
-                   
-                    {/* </Link> */}
                 </div>
             </div>
         </div>
