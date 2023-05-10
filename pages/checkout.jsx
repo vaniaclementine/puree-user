@@ -30,7 +30,7 @@ export default function Checkout() {
 
   return (
     <div className='h-screen'>
-        <div style={{position: 'sticky', top: 0}} className='shadow-xl p-8 bg-white'>
+        <div style={{position: 'sticky', top: 0}} className='shadow-lg p-8 bg-white'>
             <div className='inline-flex w-full'>
                 <Link href='shop_page'>
                     <Image src={back} className='w-8 rounded-full shadow-xl grid items-center'></Image>
@@ -136,7 +136,7 @@ export default function Checkout() {
             </div>
         </div>
 
-        <div style={{boxShadow: '0px 0px 10px #b0b0b0', position: 'sticky', bottom: 0}} className='p-10 bg-white'>
+        <div style={{boxShadow: '0px 0px 7px #b0b0b0', position: 'sticky', bottom: 0}} className='p-10 bg-white'>
             <div className='flex justify-between pb-4'>
                 <h1>Total</h1>
                 <h2>Rp118.560</h2>
