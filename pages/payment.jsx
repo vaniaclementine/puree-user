@@ -10,7 +10,7 @@ export default function Payment() {
     <div className='h-screen'>
         <div className='shadow-xl p-8'>
             <div className='inline-flex w-full'>
-                <Link href='shop_page'>
+                <Link href='checkout'>
                     <Image src={back} className='w-8 rounded-full shadow-xl grid items-center'></Image>
                 </Link>
                 <div className='grid place-items-center w-full'>
