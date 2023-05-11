@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from 'next/link'
 
@@ -16,19 +16,24 @@ import profile from '../images/profile.jpeg'
 import japchae from '../images/menu-japchae.png'
 import search from '../images/search.png'
 
-export default function shop_page() {
+export default function shop_page(item) {
+
+    const [cartItems, setCartItems] = useState([])
+    function addToCart(item) {
+      setCartItems([...cartItems, item])
+    }
     return(
         <div>
             <div id="top-container" className="w-screen grid place-items-start h-[20vh]">
                 <Image src={doo2} className='object-fill h-[20vh] w-screen'></Image>
-                <a className="ml-8 mt-5 absolute" href='#'>
+                <div className="ml-8 mt-5 absolute">
                     <Link href='all_cuisines'>
                     <Image src={back} className='w-8 rounded-full'></Image>
                     </Link>
                     <Link href='menu_search'>
                     <Image src={search} className='w-7 rounded-full bg-white ml-72 p-1 -mt-8'></Image>
                     </Link>
-                </a>
+                </div>
                 
             </div>
 
@@ -125,17 +130,27 @@ export default function shop_page() {
                         <p className='text-sm font-semibold'>53.280</p>
                     </div>
                     <div>
-                        <Image src={menu} className='w-32'></Image>
+                        <Image src={menu} className='w-32' alt="avocado puree"></Image>
                         <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
                         <p className='text-sm font-semibold'>53.280</p>
                     </div>
                     <div>
-                        <Image src={menu} className='w-32'></Image>
+                        <Image src={menu} className='w-32' alt="avocado puree"></Image>
                         <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
                         <p className='text-sm font-semibold'>53.280</p>
                     </div>
                 </div>
             </div>
+
+            {cartItems.length > 0 && (
+                <div className='h-full flex justify-center bg-white drop-shadow w-screen h-30 mt-52'>
+                    <Link href='/menu_checkout'>
+                        <button className='mt-9 bg-yellow-300 drop-shadow-lg rounded-lg w-80 h-11 flex items-center justify-center'>
+                        <p className='text-white text-sm font-semibold py-2.5'>Add to Basket</p>
+                        </button>
+                    </Link>
+                </div>
+            )}
 
             <div className='container h-24 fixed bottom-0 justify-around shadow-inner bg-white'>
                 <Image src={home} className='my-5 w-7 h-7'></Image>

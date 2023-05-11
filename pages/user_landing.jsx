@@ -2,11 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import Cloud from '../images/cloud.png'
-import Cloud2 from '../images/cloud2.png'
 import Logo from '../images/Logo-2.png'
-import Road from '../images/road.png'
-import spark from '../images/spark.jpg'
 import top from '../images/reg-merchant.png'
 
 import { useRouter } from 'next/router'

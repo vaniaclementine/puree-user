@@ -96,11 +96,10 @@
 
 #input-satu {
   width: 100%;
-  height: 35px;
-  border-radius: 5px;
+  border-width: 0 0 1px;
+  border-color: #999;
   padding: 0px 8px 0px 8px;
   margin-top: 12px;
-  /* @apply text-sm text-[#666666]; */
 }
 
 input[type='number'] {
@@ -175,7 +174,7 @@ input:focus, select:focus {
 }
 
 #craving {
-  font-size: 15px;
+  font-size: 13px;
   background-color: #FFFFFF;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
@@ -232,3 +231,70 @@ align-items: center;
   /* width: fit-content; */
   display: flex;
 }
+
+#ordercontainer {
+  height: 4rem;
+  width: 5rem;
+  background: #b0b0b0;
+  border-radius: .4rem;
+}
+
+ #ordercount {
+  height: 2rem;
+  width: 4.9rem;
+  background: #fff;
+  border-radius: .4rem;
+ }
+
+ #orderbutton {
+  width: 100%;
+  height: 3rem;
+  background-color: #F5CE00;
+  border-radius: .8rem;
+ }
+
+ #bg_choose {
+  @apply p-[1rem] text-sm text-center text-[#b0b0b0] bg-[#f1f1f1];
+ }
+
+ #paymentline {
+  height: 1px;
+  background: #f5f5f5;
+ }
+
+ #payment {
+  @apply p-[3rem];
+ }
+
+ #pin {
+  /* background: url('../images/ellipse1.jpg') top right no-repeat, url('../images/ellipse2.jpg') bottom left no-repeat; */
+  @apply h-screen overflow-hidden bg-[url('../images/bg-pay.png')];
+ }
+
+ #inputpin {
+  @apply flex flex-col justify-center px-[8rem] space-y-6;
+ }
+
+ #submitbtn {
+  height: 2rem;
+  width: 6rem;
+  border-radius: 1rem;
+  background: #fff;
+  @apply grid place-items-center;
+ }
+
+ #pincircle {
+  height: 1rem; width: 1rem;
+  border-radius: .5rem;
+  background-color: #fff;
+  opacity: 70%;
+ }
+
+ #pincontainer {
+  @apply px-[6rem] flex justify-evenly pb-[4rem];
+ }
+
+ #pinum {
+  color: #fff;
+  @apply px-[4rem] grid grid-cols-3 text-center gap-16 text-2xl;
+ }
