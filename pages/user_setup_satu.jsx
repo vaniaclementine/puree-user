@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 
 // import '../styles/merchant_setup.css'
 
@@ -12,6 +13,7 @@ export default function UserSet1() {
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhonenumber] = useState('')
   const [password, setPassword] = useState('')
+  const router = useRouter();
 
   const submitData = async e => {
     e.preventDefault()
@@ -22,7 +24,7 @@ export default function UserSet1() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
-      await Router.push('/')
+      await router.push('/user_setup_dua')
     } catch (error) {
       console.error(error)
     }
