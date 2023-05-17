@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 
-// import '../styles/merchant_setup.css'
 
 import CornerLogo from '../images/corner-logo.png'
 import Jar from '../images/jar.png'
@@ -12,6 +12,7 @@ export default function UserSet1() {
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhonenumber] = useState('')
   const [password, setPassword] = useState('')
+  const router = useRouter();
 
   const submitData = async e => {
     e.preventDefault()
@@ -22,7 +23,7 @@ export default function UserSet1() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
-      await Router.push('/')
+      await router.push('/user_setup_dua')
     } catch (error) {
       console.error(error)
     }
@@ -40,7 +41,7 @@ export default function UserSet1() {
         <h1 id='start'>Start it up!</h1>
         <p className='pb-10 font-extralight text-xs mt-2 text-gray-600'>Provide your account information</p>
             <form action="" className='divide-y -mt-2'>
-              <div id='' className='space-y-4'>
+              <div id='' className='space-y-5'>
 
                 <p className=''>Email</p>
                 <input type='email' id ='input-satu' placeholder='jane_d@gmail.com' class="placeholder-gray-500 placeholder-opacity-8" 

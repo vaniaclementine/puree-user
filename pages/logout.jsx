@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { useSession, signIn, signOut } from 'next-auth/react'
+import Link from 'next/link'
 
 export default function Logout() {
     const {data: session} = useSession()
@@ -12,7 +13,11 @@ export default function Logout() {
       return (
         <div>
             <p>Signed in as {session.user.email}</p>
-        <button onClick={() => signOut()}>Sign out</button>
+            <Link href='/user_landing'>
+              <button onClick={() => signOut()} >
+                Sign Out
+              </button>
+            </Link>
         </div>
       )
     }

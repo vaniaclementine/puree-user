@@ -14,10 +14,6 @@ import message from '../images/message.jpeg'
 import notif from '../images/notif.jpeg'
 import profile from '../images/profile.jpeg'
 import top from '../images/top-user-homescreen.jpg'
-import bebe from '../images/bebe.jpg'
-import bundling from '../images/bundling.jpg'
-import sangyu from '../images/sangyu.jpg'
-// import '../styles/user_landing.css'
 
 export default function UserHomescreen() {
     return (
@@ -27,39 +23,37 @@ export default function UserHomescreen() {
                 <div className='top-content'>
                     <p id='deliver-to' className=''>Deliver to</p>
                     <p id='address-user'>Jl. Dharmawangsa Raya No. 17b</p>
-                    <p id='craving' className='py-5 ml-8 mt-5 pl-8 flex '>What are you craving ?</p>
+                    <p id='craving' className='py-5 ml-8 mt-5 pl-8 flex text-slate-400'>What are you craving ?</p>
                 </div>
             </div>
 
             <div className=''>
                 <div id="card" className='mt-14 ml-8 text-[13px] flex'>
                     <div id="near-me">
-                        <button>
+                        <Link href='/all_cuisines'>
                         <Image className='near-me' src={nearme}></Image>
                         <p>Near Me</p>
-                        </button>
+                        </Link>
                     </div>
 
                     <div id="top-rated">
-                        <button>
+                        <Link href='#'>
                         <Image className='top-rated ml-2' src={toprated}></Image>
                         <p>Top Rated</p>
-                        </button>
+                        </Link>
                     </div>
 
-                    <div id="disc">
-                        <button>
+                    <div id="disc" className='flex align-center'>
+                        <Link href='#'>
                         <Image className='disc ml-6' src={disc}></Image>
-                        <p>Special Discount</p>
-                        </button>
+                        <p className='align-center'>Special Discount</p>
+                        </Link>
                     </div>
 
                     <div id="cuisines">
                         <Link href='/all_cuisines'>
-                        <button>
                         <Image className='cuisine ml-2' src={cuisine}></Image>
                         <p>All Cuisines</p>
-                        </button>
                         </Link>
                     </div>
                 </div>
