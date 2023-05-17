@@ -12,7 +12,7 @@ export default async function userSetupSatu(req, res) {
     }
     const response = await prisma.user.create({
         data: {
-            email: session.user.email,
+            email: email,
             phone: phone,
             password: password
         }
