@@ -57,7 +57,7 @@ model User {
 // }
 
 model Address {
-  id             String   @id
+  id             String   @id @default(cuid())
   province       String
   city           String
   address_line_1 String
@@ -66,7 +66,7 @@ model Address {
 }
 
 model Driver {
-  id        String    @id
+  id        String    @id @default(cuid())
   email     String    @unique
   phone     String    @unique
   password  String
@@ -80,7 +80,7 @@ model Driver {
 }
 
 model Item {
-  id          String   @id
+  id          String   @id @default(cuid())
   name        String
   description String
   price       Int
@@ -91,7 +91,7 @@ model Item {
 }
 
 model Cart {
-  id          String      @id
+  id          String      @id @default(cuid())
   createdAt   DateTime @default(now())
   quantity    Int
   totalPrice Float
@@ -102,11 +102,7 @@ model Cart {
 }
 
 model Merchant {
-  id       String   @id
-  email    String   @unique
-  password String
-  phone    String   @unique
-  name     String?  @unique
+  id       String   @id @default(cuid())
   balance  String?
   userId   String   @unique
   Address  Address?
@@ -115,7 +111,7 @@ model Merchant {
 }
 
 model Vehicle {
-  id          String   @id
+  id          String   @id @default(cuid())
   plateNumber String   @unique
   brand       String
   series      String
