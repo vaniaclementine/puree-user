@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 import { getServerSession } from 'next-auth'
 
+const prisma = new PrismaClient()
+
 export default async function handler(req, res) {
     const { itemId, quantity } = req.body;
   
@@ -16,6 +18,7 @@ export default async function handler(req, res) {
           item: { connect: { id: itemId } },
           quantity,
           totalPrice: item.price * quantity,
+          // user: { connect: { id: userId } }
         },
         include: { item: true },
       });
