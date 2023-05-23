@@ -42,9 +42,11 @@ model User {
   phone String?
   // emailVerified DateTime?
   image         String?
+  balance       Int?
   // accounts      Account[]
   Driver        Driver?
   Merchant      Merchant?
+  Cart          Cart?
   // sessions      Session[]
 }
 
@@ -67,13 +69,8 @@ model Address {
 
 model Driver {
   id        String    @id @default(cuid())
-  email     String    @unique
-  phone     String    @unique
-  password  String
-  name      String?
-  photo     String?
   createdAt DateTime  @default(now())
-  balance   Int?
+  // balance   Int?
   userId    String    @unique
   User      User      @relation(fields: [userId], references: [id])
   Vehicle   Vehicle[]
@@ -99,11 +96,15 @@ model Cart {
   // Define the many-to-one relationship with item
   itemId      String
   item        Item     @relation(fields: [itemId], references: [id])
+
+  // one to one
+  userId     String   @unique
+  User       User @relation(fields: [userId], references: [id])
 }
 
 model Merchant {
   id       String   @id @default(cuid())
-  balance  String?
+  // balance  String?
   userId   String   @unique
   Address  Address?
   Item     Item[]
