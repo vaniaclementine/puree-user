@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         return res.status(404).json({ success: false, message: 'Cart not found' });
       }
   
-      const discountedTotalPrice = cart.totalPrice * 0.9; // apply 10% discount
+      const discountedTotalPrice = cart.totalPrice * 0.95; // apply 5% discount
   
       const updatedCart = await prisma.cart.update({
         where: { id: cartId },
