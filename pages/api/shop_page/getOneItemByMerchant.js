@@ -6,9 +6,6 @@ const prisma = new PrismaClient()
 export default async function handler(req, res) {
     const { itemName, merchantName } = req.query
 
-    console.log(itemName);
-    console.log(merchantName);
-
     try {
         const item = await prisma.item.findFirst({
             where: {
