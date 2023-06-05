@@ -35,18 +35,18 @@ datasource db {
 // }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
+  id       String    @id @default(cuid())
+  name     String?
+  email    String?   @unique
   password String?
-  phone String?
+  phone    String?
   // emailVerified DateTime?
-  image         String?
-  balance       Int?
+  image    String?
+  balance  Int?
   // accounts      Account[]
-  Driver        Driver?
-  Merchant      Merchant?
-  // Cart          Cart?
+  Driver   Driver?
+  Merchant Merchant?
+  Cart     Cart?
   // sessions      Session[]
 }
 
@@ -77,38 +77,35 @@ model Driver {
 }
 
 model Item {
-  id          String   @id @default(cuid())
+  id          String      @id @default(cuid())
   name        String
   description String
   price       Int
   picture     String?
-  merchantId  String 
-  Merchant    Merchant @relation(fields: [merchantId], references: [id])
-  carts     Cart[]
+  merchantId  String
+  Merchant    Merchant    @relation(fields: [merchantId], references: [id])
+  order       OrderItem[]
+  CartItem    CartItem[]
 }
 
 model Cart {
-  id          String      @id @default(cuid())
-  createdAt   DateTime @default(now())
-  quantity    Int
+  id         String     @id @default(cuid())
+  createdAt  DateTime   @default(now())
+  cartItems  CartItem[]
   totalPrice Float
 
-  // Define the many-to-one relationship with item
-  itemId      String
-  item        Item     @relation(fields: [itemId], references: [id])
-
   // one to one
-  // userId     String   @unique
-  // User       User @relation(fields: [userId], references: [id])
+  userId String @unique
+  User   User   @relation(fields: [userId], references: [id])
 }
 
 model Merchant {
-  id       String   @id @default(cuid())
+  id      String   @id @default(cuid())
   // balance  String?
-  userId   String   @unique
-  Address  Address?
-  Item     Item[]
-  User     User     @relation(fields: [userId], references: [id])
+  userId  String   @unique
+  Address Address?
+  Item    Item[]
+  User    User     @relation(fields: [userId], references: [id])
 }
 
 model Vehicle {
@@ -120,4 +117,32 @@ model Vehicle {
   year        DateTime
   driverId    String
   Driver      Driver   @relation(fields: [driverId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id         String      @id @default(cuid())
+  orderItems OrderItem[]
+  totalPrice Float
+
+  createdAt  DateTime   @default(now())
+  orderEnd   DateTime   @updatedAt
+}
+
+model OrderItem {
+  id       String @id @default(cuid())
+  orderId  String
+  itemId   String
+  quantity Int
+
+  order Order @relation(fields: [orderId], references: [id])
+  item  Item  @relation(fields: [itemId], references: [id])
+}
+
+model CartItem {
+  id       String @id @default(cuid())
+  cart     Cart   @relation(fields: [cartId], references: [id])
+  item     Item   @relation(fields: [itemId], references: [id])
+  cartId   String
+  itemId   String
+  quantity Int
 }
