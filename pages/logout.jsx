@@ -6,10 +6,10 @@ export default function Logout() {
     const {data: session} = useSession()
     const router = useRouter()
 
-    console.log(session)
-
+    console.log(session.user.email)
 
     if (session) {
+
       return (
         <div>
             <p>Signed in as {session.user.email}</p>
