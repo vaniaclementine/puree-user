@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from 'next/link'
 
@@ -22,6 +22,25 @@ export default function shop_page(item) {
     function addToCart(item) {
       setCartItems([...cartItems, item])
     }
+
+    const [menu, setMenu] = useState([])
+    useEffect(() => {
+        const fetchData = async () => {
+            console.log("Hit BE")
+            const result = await fetch('http://localhost:3000/api/shop_page/getItemsByMerchant?merchantName=pinkfong')
+            const jsonResult = await result.json
+
+            setMenu(jsonResult)
+            console.log("Get BE Result")
+        }
+
+        fetchData()
+    }, [])
+
+    const submitMenu = async () => {
+
+    }
+
     return(
         <div>
             <div id="top-container" className="w-screen grid place-items-start h-[20vh]">
@@ -94,53 +113,19 @@ export default function shop_page(item) {
                 </div>
             </div>
 
-            <div className="mt-8 mb-24 mr-8">
-                <p className="text-xl font-semibold ml-8">All Menu</p>
-                <div className='grid grid-cols-2 gap-2 ml-10 my-6 h-screen '>
-                    <div>
-                        <Image src={menu} className='w-32'></Image>
-                        <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
-                        <p className='text-sm font-semibold'>53.280</p>
-                    </div>
-                    <div>
-                        <Link href='/menu_details'>
-                        <Image src={japchae} className='w-32'></Image>
-                        <p className='mt-4 text-sm font-medium'>[PinkFong] Dak Gomtang - MPASI</p>
-                        <p className='text-sm font-semibold'>53.280</p>
-                        </Link>
-                    </div>
-                    <div>
-                        <Image src={menu} className='w-32'></Image>
-                        <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
-                        <p className='text-sm font-semibold'>53.280</p>
-                    </div>
-                    <div>
-                        <Image src={menu} className='w-32'></Image>
-                        <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
-                        <p className='text-sm font-semibold'>53.280</p>
-                    </div>
-                    <div>
-                        <Image src={menu} className='w-32'></Image>
-                        <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
-                        <p className='text-sm font-semibold'>53.280</p>
-                    </div>
-                    <div>
-                        <Image src={menu} className='w-32'></Image>
-                        <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
-                        <p className='text-sm font-semibold'>53.280</p>
-                    </div>
-                    <div>
-                        <Image src={menu} className='w-32' alt="avocado puree"></Image>
-                        <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
-                        <p className='text-sm font-semibold'>53.280</p>
-                    </div>
-                    <div>
-                        <Image src={menu} className='w-32' alt="avocado puree"></Image>
-                        <p className='mt-4 text-sm font-medium'>Avocado Purée</p>
-                        <p className='text-sm font-semibold'>53.280</p>
-                    </div>
+                <div className="mt-8 mb-24 mr-8">
+                    <p className="text-xl font-semibold ml-8">All Menu</p>
+                    <div className='grid grid-cols-2 gap-2 ml-10 my-6 h-screen '>
+
+                        <button onClick={submitMenu}></button>
+                        {menu.map(menu =>
+                        <div key={menu.id}>
+                            <Image src={menu.picture} className='w-32'></Image>
+                            <p className='mt-4 text-sm font-medium'>{menu.name}</p>
+                            <p className='text-sm font-semibold'>{menu.price}</p>
+                        </div>)}
+                    </div>            
                 </div>
-            </div>
 
             {cartItems.length > 0 && (
                 <div className='h-full flex justify-center bg-white drop-shadow w-screen h-30 mt-52'>
