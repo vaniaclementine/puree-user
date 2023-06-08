@@ -15,7 +15,7 @@ import notif from '../images/notif.jpeg'
 import profile from '../images/profile.jpeg'
 import top from '../images/top-user-homescreen.jpg'
 
-export default function user_homescreen() {
+export default function UserHomescreen() {
     return (
         <div className='bg-white'>
             <div className='w-screen grid place-items-start h-[20vh]'>

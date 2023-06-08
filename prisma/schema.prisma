@@ -8,8 +8,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id       String    @id @default(cuid())
+  name     String?
+  email    String?   @unique
+  password String?
+  phone    String?
+
+  image    String?
+  balance  Int?
+
+  Driver   Driver?
+  Merchant Merchant?
+  Cart     Cart?
+}
+
 model Address {
-  id             String   @id
+  id             String   @id @default(cuid())
   province       String
   city           String
   address_line_1 String
@@ -17,26 +32,8 @@ model Address {
   Merchant       Merchant @relation(fields: [merchantId], references: [userId])
 }
 
-model Cart {
-  id         String     @id
-  createdAt  DateTime   @default(now())
-  totalPrice Float
-  userId     String     @unique
-  User       User       @relation(fields: [userId], references: [id])
-  CartItem   CartItem[]
-}
-
-model CartItem {
-  id       String @id
-  cartId   String
-  itemId   String
-  quantity Int
-  Item     Item   @relation(fields: [itemId], references: [id])
-  Cart     Cart   @relation(fields: [cartId], references: [id])
-}
-
 model Driver {
-  id        String    @id
+  id        String    @id @default(cuid())
   createdAt DateTime  @default(now())
   userId    String    @unique
   User      User      @relation(fields: [userId], references: [id])
@@ -44,57 +41,39 @@ model Driver {
 }
 
 model Item {
-  id          String      @id
+  id          String      @id @default(cuid())
   name        String
   description String
   price       Int
   picture     String?
   merchantId  String
-  CartItem    CartItem[]
   Merchant    Merchant    @relation(fields: [merchantId], references: [id])
-  OrderItem   OrderItem[]
+  order       OrderItem[]
+  CartItem    CartItem[]
+}
+
+model Cart {
+  id         String     @id @default(cuid())
+  createdAt  DateTime   @default(now())
+  cartItems  CartItem[]
+  totalPrice Float
+
+  // one to one
+  userId String @unique
+  User   User   @relation(fields: [userId], references: [id])
 }
 
 model Merchant {
-  id      String   @id
+  id      String   @id @default(cuid())
+ 
   userId  String   @unique
   Address Address?
   Item    Item[]
   User    User     @relation(fields: [userId], references: [id])
 }
 
-model Order {
-  id         String      @id
-  totalPrice Float
-  createdAt  DateTime    @default(now())
-  orderEnd   DateTime
-  OrderItem  OrderItem[]
-}
-
-model OrderItem {
-  id       String @id
-  orderId  String
-  itemId   String
-  quantity Int
-  Item     Item   @relation(fields: [itemId], references: [id])
-  Order    Order  @relation(fields: [orderId], references: [id])
-}
-
-model User {
-  id       String    @id
-  name     String?
-  email    String?   @unique
-  password String?
-  phone    String?
-  image    String?
-  balance  Int?
-  Cart     Cart?
-  Driver   Driver?
-  Merchant Merchant?
-}
-
 model Vehicle {
-  id          String   @id
+  id          String   @id @default(cuid())
   plateNumber String   @unique
   brand       String
   series      String
@@ -102,4 +81,32 @@ model Vehicle {
   year        DateTime
   driverId    String
   Driver      Driver   @relation(fields: [driverId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id         String      @id @default(cuid())
+  orderItems OrderItem[]
+  totalPrice Float
+
+  createdAt  DateTime   @default(now())
+  orderEnd   DateTime   @updatedAt
+}
+
+model OrderItem {
+  id       String @id @default(cuid())
+  orderId  String
+  itemId   String
+  quantity Int
+
+  order Order @relation(fields: [orderId], references: [id])
+  item  Item  @relation(fields: [itemId], references: [id])
+}
+
+model CartItem {
+  id       String @id @default(cuid())
+  cart     Cart   @relation(fields: [cartId], references: [id])
+  item     Item   @relation(fields: [itemId], references: [id])
+  cartId   String
+  itemId   String
+  quantity Int
 }

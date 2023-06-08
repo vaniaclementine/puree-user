@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 
 export default function Counter(){
 
-  const [num, setNum]= useState(Number(localStorage.getItem("counterValue")) || 0);
+  const [num, setNum]= useState(0);
 
   const incNum =()=>{
     num < 100 ? setNum(Number(num)+1) : false
@@ -14,7 +14,6 @@ export default function Counter(){
 
   const handleChange = (e)=>{
    setNum(e.target.value);
-   localStorage.setItem("counterValue", e.target.value);
   }
 
    return(
