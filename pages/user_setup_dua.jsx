@@ -17,7 +17,7 @@ export default function userSet2() {
       e.preventDefault()
       try {
         const body = { picture, name }
-        await fetch(`http://localhost:3000/api/user-setup-dua`, { // BELOM
+        await fetch(`http://localhost:3000/api/user_setup/user-setup-dua`, { // BELOM
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body),
